@@ -24,3 +24,26 @@ if(c > 9){
 // don't define a variable with let const or var and try printing it, JS will forgive you, it will by 
 z = 500 // JS by default will treat this as a var variable keyword
 console.log(z);
+
+// type conversion and Type coercion in JavaScript
+// string + number = string (+ is string concatenation)
+var x = '1' + 5;
+console.log(x);
+
+// string - number = number ( everything except + will treat it as a number as JS is forgiving)
+var x = 10 - '2';
+console.log(x);
+var x = 10 / '10';
+console.log(x); // prints 1
+
+// using strings for true and false
+if(''){
+    console.log("empty string means false"); // won't print
+}
+if('0'){
+    console.log("0 as a string means true as only empty string is false");
+}
+
+// convert valid string number into number
+var x = Number('4') + 4;
+console.log(x);
