@@ -47,3 +47,26 @@ if('0'){
 // convert valid string number into number
 var x = Number('4') + 4;
 console.log(x);
+
+
+// every loop has three impt things to keep in mind.
+// start point, end point and step iteration 
+
+
+// while loop
+var loopVar = 1;
+
+while(loopVar <= 100){
+    console.log(loopVar);
+    loopVar++;
+}
+
+// for loop, instead of hardcoding values, its better to put them in a variable, so it can be updated easily in one place.
+// print 5 to 1
+var start = 5;
+var end = 1;
+var step = 1;
+for(var i = start; i >= end; i -= step)
+{
+    console.log(i);
+}
