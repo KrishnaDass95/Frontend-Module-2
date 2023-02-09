@@ -70,3 +70,17 @@ for(var i = start; i >= end; i -= step)
 {
     console.log(i);
 }
+
+function logmsg(msg, number)
+{
+    console.log(msg, number)
+}
+// in JS if you pass only one argument instead of two, it does not give an error
+// infact for the missing value, it will be given the value of undefined.
+logmsg("krishna");
+
+// default value for paramter
+function logHello(msg="hello"){
+    console.log(msg);
+}
+logHello("krishna")
