@@ -94,4 +94,16 @@ var doSomething = function iAmDoingSomething(message){
     console.log(message);
 }
 doSomething("I want to do something") 
-iAmDoingSomething("can i do something?") // cannot access this function, you have to call it using the variable name above. gives a referene error
+// iAmDoingSomething("can i do something?") // cannot access this function, you have to call it using the variable name above. gives a referene error
+
+var doSomething = function (message){ // annonymous functions, a function without a name
+    console.log(message);
+}
+doSomething("I want to do something") 
+
+var variableFunction = function() {
+    console.log("I am from variable function");
+}
+
+console.log(variableFunction);
+

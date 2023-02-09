@@ -11,3 +11,12 @@ function forLoops(start, end, step){
 }
 forLoops(40, 50, 2);
 // functions help with reusability
+
+console.log("--------------------")
+function addTwoNumbers(a){
+    var b = 200;
+    return a + b;
+}
+var ans = addTwoNumbers(100);
+console.log(ans);
+// console.log(b); you cannot print the var b as its only defined at the function scope.
