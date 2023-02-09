@@ -83,4 +83,15 @@ logmsg("krishna");
 function logHello(msg="hello"){
     console.log(msg);
 }
+function logHello(msg="hello", value="default"){
+    console.log(msg + value);
+}
 logHello("krishna")
+
+// function expression, a variable in JS can hold a function
+
+var doSomething = function iAmDoingSomething(message){
+    console.log(message);
+}
+doSomething("I want to do something") 
+iAmDoingSomething("can i do something?") // cannot access this function, you have to call it using the variable name above. gives a referene error
