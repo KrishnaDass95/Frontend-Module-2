@@ -43,3 +43,39 @@ assorted.forEach(logValues)
 console.log("---------");
 var books = ["freedom", "cycle", "run forever"];
 books.forEach(function (books, index) { console.log(books, index)})
+
+// like for each, we have a map function
+books.map(function(book){
+    console.log("Output from map", book);
+})
+
+var nums = [1, 2, 3, 4, 5];
+// return an array which stores squares of numbers
+
+// using the for each loop
+// function squareValues(value){
+//     console.log(value * value);
+// }
+console.log("--------");
+// for each functions do not return anything
+nums.forEach(function (num, index){
+    var sq = num * num;
+    nums[index] = sq;
+});
+console.log(nums);
+
+
+// map functions return value unlike the forEach function above
+// this map returns an array
+var output = nums.map(function (value){
+    return value * value;
+});
+
+console.log(output);
+
+// use the splice array command to delete the value at a certain index
+var nums = [4, 8, 10, 12];
+nums.splice(1, 1); // delete the value at index 1 of the nums array
+console.log(nums);
+
+// use splice to delete a particular element
