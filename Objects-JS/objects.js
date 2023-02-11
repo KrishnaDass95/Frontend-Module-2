@@ -81,3 +81,6 @@ console.log(obj);
 
 // accessing objects object
 console.log(obj.user.name);
+
+var arr = ["yolo", "jello"];
+console.log(arr[1]);
