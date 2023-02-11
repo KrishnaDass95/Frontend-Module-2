@@ -35,3 +35,18 @@ function addH3Text(parent, text){
     parent.appendChild(element);
 }
 addH3Text(containerPractice, "Hi Krishna");
+
+// EVENT LISTENERS
+// we can listen to events as users interact with our site
+// first get the element you want to listen to
+var alertButton = document.querySelector('.alert');
+
+// lets add a function that shows a prompt when its clicked
+function alertPrompt(){
+    alert("Here's your alert");
+}
+
+// now lets add an event listener to the button
+// the event listener takes two functions, what event you are listening to
+// then you can show a prompt
+alertButton.addEventListener('click', alertPrompt);
