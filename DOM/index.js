@@ -49,4 +49,4 @@ function alertPrompt(){
 // now lets add an event listener to the button
 // the event listener takes two functions, what event you are listening to
 // then you can show a prompt
-alertButton.addEventListener('click', alertPrompt);
+alertButton.addEventListener('click', alertPrompt); // we don't use () brackets in the alertPrompt function here because, we don't have to call the function ourself, JS will call it directly

@@ -1,0 +1,14 @@
+.container{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.img{
+    border: 1px solid black;
+}
+img{
+    margin: 4px;
+}
+.img:hover{
+    transform: scale(1.2);
+}
+

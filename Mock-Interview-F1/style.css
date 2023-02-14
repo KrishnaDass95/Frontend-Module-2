@@ -1,0 +1,28 @@
+h1{
+    text-align: center;
+}
+h2{
+    color: blue;
+}
+.main-container{
+    margin: 0 auto;
+}
+.containers{
+    /* width: 80%; */
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+    
+}
+.img{
+    margin: 20px;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: white;
+}
+.gray{
+    background-color: lightgray;
+}
+.right{
+    margin-top: 10px;
+}
