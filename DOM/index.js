@@ -50,3 +50,18 @@ function alertPrompt(){
 // the event listener takes two functions, what event you are listening to
 // then you can show a prompt
 alertButton.addEventListener('click', alertPrompt); // we don't use () brackets in the alertPrompt function here because, we don't have to call the function ourself, JS will call it directly
+
+
+// Q->  adding an element in between
+// the syntax is parent.insertBefore(child)
+
+//get the parent and child element first
+var parentElement = document.getElementById('middle');
+var child = document.getElementById('div1'); // to be inserted before which element
+
+// lets create an element
+var spanCreation = document.createElement('span');
+spanCreation.textContent = "I am a DOM created Span";
+
+// now lets add the child in between using 
+parentElement.insertBefore(spanCreation, child);
