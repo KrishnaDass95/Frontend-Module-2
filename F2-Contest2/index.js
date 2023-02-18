@@ -11,6 +11,7 @@
 bookNameInputElement = document.querySelector('#book-name');
 issuedToInputElement = document.querySelector('#issued-to');
 buttonElement = document.querySelector('#btn');
+tableElement = document.querySelector('#main-table');
 
 var arr = [
     {id: 0, book_name: "", issued_to:"", issued_time:"",status:""}
@@ -32,6 +33,22 @@ function getCurrentDate(){
 }
 
 // when clicked, take info and add to array, then post to table
+function addIntoTable(obj){
+    //create table row
+    var tr = document.createElement('tr');
+    tableElement.appendChild(tr);
+
+    // first lets get the keys in an array
+    var keys = Object.keys(obj);
+    keys.forEach(function (key){
+        var td = document.createElement('td');
+        td.textContent = obj[key];
+        tr.appendChild(td);
+    })
+
+
+}
+
 function addIntoArray(event){
     event.preventDefault();
     bookName = bookNameInputElement.value;
@@ -44,6 +61,6 @@ function addIntoArray(event){
         issued_time: getCurrentDate(),
         status: "Not Returned"
     });
-    alert(arr[1].issued_time);
+    addIntoTable(arr[arr.length - 1]);
 }
 buttonElement.addEventListener('click', addIntoArray);
