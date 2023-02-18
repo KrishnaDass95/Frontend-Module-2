@@ -7,3 +7,31 @@
 //4. The status of the book should be editable
 //5. A JS function that changes status of the books to be returned or not
 //6. Change color on the status basis
+
+bookNameInputElement = document.querySelector('#book-name');
+issuedToInputElement = document.querySelector('#issued-to');
+buttonElement = document.querySelector('#btn');
+
+var arr = [
+    {id: 0, book_name: "", issued_to:"", issued_time:"",status:""}
+] 
+
+function getCurrentDate(){
+    
+}
+
+// when clicked, take info and add to array, then post to table
+function addIntoArray(event){
+    event.preventDefault();
+    bookName = bookNameInputElement.value;
+    issuedTo = issuedToInputElement.value;
+    var currentBookID = arr[arr.length - 1].id;
+    arr.push({
+        id: currentBookID+1,
+        book_name: bookName,
+        issued_to: issuedTo,
+        issued_time: getCurrentDate(),
+        status: "Not Returned"
+    });
+}
+buttonElement.addEventListener('click', addIntoArray);
