@@ -36,8 +36,16 @@ table{
     width: 100%;
     border: 1px solid white;
     color: white;
+    /* border-spacing: 20px; */
 }
 th{
     border-right: 1px solid white;
     border-bottom: 1px solid white;
+    
 }
+td{
+    padding: 25px;
+    text-align: center;
+    border-right: 1px solid white;
+}
+
