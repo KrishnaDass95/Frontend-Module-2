@@ -17,7 +17,18 @@ var arr = [
 ] 
 
 function getCurrentDate(){
-    
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+
+    const hour = String(now.getHours() % 12 || 12).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const meridiem = now.getHours() >= 12 ? 'PM' : 'AM';
+
+    const formattedDate = `${day}/${month}/${year} at ${hour}:${minutes} ${meridiem}`;
+    return formattedDate;
+
 }
 
 // when clicked, take info and add to array, then post to table
@@ -33,5 +44,6 @@ function addIntoArray(event){
         issued_time: getCurrentDate(),
         status: "Not Returned"
     });
+    alert(arr[1].issued_time);
 }
 buttonElement.addEventListener('click', addIntoArray);
