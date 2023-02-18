@@ -70,11 +70,12 @@ console.log(mixedArray);
 console.log("----------------------------");
 var newArray = [500, 5,7,8,9,9];
 var iteratorSum = 0;
-// reduce function takes a call back function, where we specify the initial value of the sum = 0 declared globally
+// reduce function takes a call back function, where we specify the initial value of the sum = 0 declared globally or it can be given as 
+// the second argument in the function
 // then we pass the current value, it needs to return a value. Finally, the reduce function also takes a second argument
 // to initalise the iteratorSum to 0
 var finalSum = newArray.reduce(function(iteratorSum, currentVal){
-    console.log(iteratorSum, currentVal);
+    console.log("reduce function",iteratorSum, currentVal);
     return iteratorSum + currentVal
 }, 0);
 console.log(finalSum);
