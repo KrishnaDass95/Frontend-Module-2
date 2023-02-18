@@ -20,6 +20,7 @@ input[type="text"]{
     border: none;
     border: 1px solid white;
     height: 30px;
+    color: white;
 }
 .input-group{
     display: flex;
@@ -30,4 +31,11 @@ label{
 }
 button{
     height: 40px;
+}
+table{
+    width: 100%;
+    border: 1px solid white;
+}
+th{
+    border-right: 1px solid white;
 }
