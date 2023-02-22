@@ -12,3 +12,15 @@ function a(){
 }
 
 a();
+
+
+// block scope also follows lexical environment, it searches for the nearest parent for it to find the variable.
+// a block is anything defined in curly braces {}
+let x = 100;
+{
+    let x = 10;
+    {
+        // let x = 15;
+        console.log(x);
+    }
+}
