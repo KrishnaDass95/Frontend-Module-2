@@ -77,3 +77,30 @@ console.log(productKeys);
 productKeys.forEach(function (key) {
     console.log(key, product[key]);
 })
+
+/**
+ * Given an object a, create a new object b with keys of a as value, and value of a as keys
+ */
+console.log("---switch keys and values of an existing object into a new object");
+let b = {};
+
+productKeys.forEach(function (item){
+    b[product[item]] = item;
+})
+console.log(b);
+
+
+// get all the values from object
+console.log("------values---------");
+var productValues = Object.values(product);
+console.log(productValues);
+
+// entries function which returns the function as key value pairs
+const obj = {a:1, b:2, c:3};
+const userEntries = Object.entries(obj);
+console.log(userEntries); // [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ] ]
+
+// object destructuring
+const user1 = {name: "krishna", age: 200};
+const {age, name} = user1; // from user1 take out the name and age assign it to to a variable. You need to use the same value as the key
+console.log(age, name);
