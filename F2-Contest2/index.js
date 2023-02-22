@@ -42,6 +42,9 @@ function addIntoTable(obj){
     var keys = Object.keys(obj);
     keys.forEach(function (key){
         var td = document.createElement('td');
+        if(key == "status"){
+            td.setAttribute('contenteditable', 'true');
+        }
         td.textContent = obj[key];
         tr.appendChild(td);
     })
@@ -51,16 +54,21 @@ function addIntoTable(obj){
 
 function addIntoArray(event){
     event.preventDefault();
+    
     bookName = bookNameInputElement.value;
     issuedTo = issuedToInputElement.value;
-    var currentBookID = arr[arr.length - 1].id;
-    arr.push({
+    if(bookName && issuedTo){
+        var currentBookID = arr[arr.length - 1].id;
+        arr.push({
         id: currentBookID+1,
         book_name: bookName,
         issued_to: issuedTo,
         issued_time: getCurrentDate(),
         status: "Not Returned"
     });
-    addIntoTable(arr[arr.length - 1]);
+        addIntoTable(arr[arr.length - 1]);
+        bookNameInputElement.value = "";
+        issuedToInputElement.value = "";
+    }
 }
 buttonElement.addEventListener('click', addIntoArray);
