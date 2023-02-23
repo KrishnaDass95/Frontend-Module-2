@@ -101,5 +101,6 @@ console.log("* regex-> ",sentence4.match(/S.*/g)); // * regex->  [ 'S is SPARTA'
 
 
 
-
-
+// if you have a string and a number expression inside it, you can use the inbuilt eval function
+// for example 
+console.log("the ans is ",eval(" 2 + 5 + 5 - 6 / 3 * 4")); // the ans is  4

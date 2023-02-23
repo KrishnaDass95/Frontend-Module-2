@@ -7,8 +7,6 @@
   * 
   */
 
-const { privateDecrypt } = require("crypto");
-
  // object
  var student = {name: 'krishna', age: 24, module: 'front-end2'};
  console.log(student);
