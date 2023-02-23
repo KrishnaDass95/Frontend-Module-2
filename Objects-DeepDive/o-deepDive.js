@@ -105,7 +105,8 @@ const user1 = {name: "krishna", age: 200};
 const {age, name} = user1; // from user1 take out the name and age assign it to to a variable. You need to use the same value as the key
 console.log(age, name);
 
-// using this keyword -> refer to current object itself
+// using this keyword -> refer to current object itself, 
+// for example for a particular object key, we want to use the key-value pair of another 
 let person = {
     name: "john",
     age: 99,
@@ -119,3 +120,11 @@ let person = {
 person.greet();
 console.log("-- calling just `this`-----");
 person.thisFun();
+/**
+ * {
+  name: 'john',
+  age: 99,
+  greet: [Function: greet],
+  thisFun: [Function: thisFun]
+}
+ */
