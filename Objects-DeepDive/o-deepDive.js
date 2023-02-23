@@ -104,3 +104,18 @@ console.log(userEntries); // [ [ 'a', 1 ], [ 'b', 2 ], [ 'c', 3 ] ]
 const user1 = {name: "krishna", age: 200};
 const {age, name} = user1; // from user1 take out the name and age assign it to to a variable. You need to use the same value as the key
 console.log(age, name);
+
+// using this keyword -> refer to current object itself
+let person = {
+    name: "john",
+    age: 99,
+    greet: function(){
+        console.log("hello my name is " + this.name + "and my age is " + this.age);
+    },
+    thisFun: function(){
+        console.log(this);
+    }
+}
+person.greet();
+console.log("-- calling just `this`-----");
+person.thisFun();
