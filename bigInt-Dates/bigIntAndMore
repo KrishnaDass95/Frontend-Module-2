@@ -1,0 +1,33 @@
+let a = Number.MAX_SAFE_INTEGER; 
+let b = Number.MIN_SAFE_INTEGER; 
+console.log(a); // 9007199254740991
+console.log(b); // -9007199254740991
+
+// if we add both
+const add = a + b;
+console.log(add); // 0
+
+// lets add two max safe integers
+const addMax = a + a;
+console.log(addMax); // 18014398509481982
+console.log(typeof(addMax)); // number
+
+// if we multiply the number is going to be stored in a weird format
+const mul = a * a;
+console.log(mul); // 8.112963841460666e+31
+console.log(typeof(mul)); // number
+
+// still a number but its represented weirdly with an e. 
+// So we have a way of representing bigger values in number using BigInt
+
+// create big int
+const x = 100n;
+const y = BigInt(29999);
+console.log(x, y); // 100n 29999n
+
+// conver big int back into number using parseInt
+let xToNumber = parseInt(x);
+console.log(xToNumber); // 100
+
+// using bigInt JS object, you can store large numbers with arbitary precision based on how much memory you have
+// the downside to BigInt is that, you cannot use math functions like ceil, floor, etc
