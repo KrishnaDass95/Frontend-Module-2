@@ -100,6 +100,9 @@ function saveData(){
     if((!name) || (!rollnum) || (!subject) || (!marks) || (!markedBy)) {
         alert('enter all the values, do not leave anything empty');
     }
+    const intMarks = parseInt(marks);
+    if(isNaN(marks)) alert('marks needs to be a number')
+    if(!markedBy.includes('@')) alert('markedBy needs an email address');
 
 
 }
