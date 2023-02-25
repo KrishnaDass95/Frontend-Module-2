@@ -1,6 +1,7 @@
 const addRowBtn = document.querySelector('#add');
 const table = document.querySelector('table');
 
+
 const tableData = [
     {id: 0,
     student_name: '',
@@ -14,7 +15,7 @@ const tableData = [
 function createSaveButton(){
     const saveBtn = document.createElement('button');
     saveBtn.textContent = 'Save';
-    saveBtn.classList.add('btn');
+    saveBtn.classList.add('btn', 'save');
     return saveBtn;
 }
 
@@ -42,20 +43,29 @@ function addDataToRow(row){
         const inputField = document.createElement('input');
         td.appendChild(inputField);
         inputField.setAttribute('type', 'text');
+        inputField.setAttribute('required', 'true');
         inputField.classList.add('input-field');
         }
 
         
     })
     
-
 }
 
 function createRow(){
     const row = document.createElement('tr');
     table.appendChild(row);
     addDataToRow(row);
+    let lastSaveBtn = document.querySelectorAll('.save');
+    const saveIndex = lastSaveBtn.length - 1;
+    const saveButton = document.querySelectorAll('.save')[saveIndex];
+    saveButton.addEventListener('click', saveData)
+}
 
+
+
+function saveData(){
+    
 }
 
 
