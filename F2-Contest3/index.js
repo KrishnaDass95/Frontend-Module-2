@@ -13,7 +13,7 @@ const tableData = [
 
 function createSaveButton(){
     const saveBtn = document.createElement('button');
-    saveBtn.innerText = 'Save';
+    saveBtn.textContent = 'Save';
     saveBtn.classList.add('btn');
     return saveBtn;
 }
@@ -32,7 +32,9 @@ function addDataToRow(row){
         td.textContent = idValue;
         }
         else if(key == 'save'){
-            createSaveButton();
+        const td = document.createElement('td');
+        row.appendChild(td);
+        td.appendChild(createSaveButton());
         }
         else{
         const td = document.createElement('td');
