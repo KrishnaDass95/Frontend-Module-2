@@ -91,19 +91,30 @@ function createRow(){
 function saveData(){
     const name = document.querySelector('#name').value;
     const rollnum = document.querySelector('#roll').value;
-    const subject = document.querySelector('#subject').value;
-    const marks = document.querySelector('#marks').value;
+    const subjectData = document.querySelector('#subject').value;
+    const marksData = document.querySelector('#marks').value;
     const markedBy = document.querySelector('#marked_by').value;
-    const id = document.querySelector('#id').value;
+    const idNum = document.querySelector('#id').value;
+    let idNumInt = parseInt(idNum);
 
     // add validations for all the data
     if((!name) || (!rollnum) || (!subject) || (!marks) || (!markedBy)) {
         alert('enter all the values, do not leave anything empty');
     }
     const intMarks = parseInt(marks);
-    if(isNaN(marks)) alert('marks needs to be a number')
+    // if(isNaN(marks)) alert('marks needs to be a number')
     if(!markedBy.includes('@')) alert('markedBy needs an email address');
 
+    // add data to the array and log it
+    tableData.push({
+        id: idNumInt+1,
+        student_name: name,
+        student_roll: rollnum,
+        subject: subjectData,
+        marks:marksData,
+        marked_by: markedBy
+    })
+    console.log(tableData);
 
 }
 
