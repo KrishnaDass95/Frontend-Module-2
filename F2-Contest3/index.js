@@ -89,9 +89,19 @@ function createRow(){
 
 
 function saveData(){
-    // const name = 
-    
-    
+    const name = document.querySelector('#name').value;
+    const rollnum = document.querySelector('#roll').value;
+    const subject = document.querySelector('#subject').value;
+    const marks = document.querySelector('#marks').value;
+    const markedBy = document.querySelector('#marked_by').value;
+    const id = document.querySelector('#id').value;
+
+    // add validations for all the data
+    if((!name) || (!rollnum) || (!subject) || (!marks) || (!markedBy)) {
+        alert('enter all the values, do not leave anything empty');
+    }
+
+
 }
 
 
