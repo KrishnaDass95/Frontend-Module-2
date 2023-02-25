@@ -8,7 +8,7 @@ const tableData = [
     subject: '',
     marks:'',
     marked_by:'',
-    save: createSaveButton()}
+    save: ''}
 ]
 
 function createSaveButton(){
@@ -18,12 +18,16 @@ function createSaveButton(){
 }
 
 function addDataToRow(row){
-    // a loop, that will go through the tableData, go to the last index
-    // and then add that data to the table row
     const lastEntry = tableData.length - 1;
-    // go through every key, create an input element, append this input element to every table data
     const keys = Object.keys(tableData[lastEntry]);
-    alert(keys);
+    keys.forEach(function(key){
+        const td = document.createElement('td');
+        row.appendChild(td);
+        const inputField = document.createElement('input');
+        td.appendChild(inputField);
+        inputField.setAttribute('type', 'text');
+        inputField.classList.add('input-field');
+    })
     
 
 }
