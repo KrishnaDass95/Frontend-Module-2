@@ -15,39 +15,63 @@ const tableData = [
 function createSaveButton(){
     const saveBtn = document.createElement('button');
     saveBtn.textContent = 'Save';
+    saveBtn.setAttribute('type', 'submit');
     saveBtn.classList.add('btn', 'save');
     return saveBtn;
+}
+function createInputField(){
+    const inputField = document.createElement('input');
+    // td.appendChild(inputField);
+    inputField.setAttribute('type', 'text');
+    inputField.setAttribute('required', 'true');
+    inputField.classList.add('input-field');
+    return inputField;
+    
 }
 
 function addDataToRow(row){
     let lastEntry = tableData.length - 1;
     const keys = Object.keys(tableData[lastEntry]);
+
     keys.forEach(function(key){
-        if(key == 'id'){
         const td = document.createElement('td');
         row.appendChild(td);
+        if(key == 'id'){
         const lastIdValue = tableData[lastEntry].id;
         const idValue = lastIdValue+1;
         lastEntry = tableData.length - 1;
         tableData[lastEntry].id = idValue;
         td.textContent = idValue;
+        td.setAttribute('id', 'id');
         }
         else if(key == 'save'){
-        const td = document.createElement('td');
-        row.appendChild(td);
         td.appendChild(createSaveButton());
         }
-        else{
-        const td = document.createElement('td');
-        row.appendChild(td);
-        const inputField = document.createElement('input');
-        td.appendChild(inputField);
-        inputField.setAttribute('type', 'text');
-        inputField.setAttribute('required', 'true');
-        inputField.classList.add('input-field');
+        else if(key=='student_name'){
+        const input = createInputField();
+        td.appendChild(input);
+        input.setAttribute('id','name');
         }
-
-        
+        else if(key=='student_roll'){
+        const input = createInputField();
+        td.appendChild(input);
+        input.setAttribute('id','roll');
+        }
+        else if(key=='subject'){
+        const input = createInputField();
+        td.appendChild(input);
+        input.setAttribute('id','subject');
+        }
+        else if(key=='marks'){
+        const input = createInputField();
+        td.appendChild(input);
+        input.setAttribute('id','marks');
+        }
+        else if(key=='marked_by'){
+        const input = createInputField();
+        td.appendChild(input);
+        input.setAttribute('id','marked_by');
+        }
     })
     
 }
@@ -65,6 +89,8 @@ function createRow(){
 
 
 function saveData(){
+    // const name = 
+    
     
 }
 
