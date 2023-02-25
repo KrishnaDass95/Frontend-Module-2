@@ -1,0 +1,36 @@
+*{
+    font-family: inter;
+}
+body{
+    margin: 0;
+    margin-top: 0;
+}
+.header{
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+h2{
+    margin: 0;
+}
+.button{
+    margin: 20px ;
+}
+.btn{
+    background-color: black;
+    color:white;
+    width: 200px;
+    height: 30px;
+}
+table{
+    margin: 20px;
+    border: 1px solid black;
+    width: 95%;
+}
+td{
+    border-right: 1px solid black;
+    text-align: center;
+}
+table td:last-child{
+    border-right: none;
+}
