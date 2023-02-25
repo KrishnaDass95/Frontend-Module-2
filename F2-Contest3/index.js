@@ -20,6 +20,10 @@ function createSaveButton(){
 function addDataToRow(row){
     // a loop, that will go through the tableData, go to the last index
     // and then add that data to the table row
+    const lastEntry = tableData.length - 1;
+    // go through every key, create an input element, append this input element to every table data
+    const keys = Object.keys(tableData[lastEntry]);
+    alert(keys);
     
 
 }
