@@ -10,12 +10,15 @@
     position: absolute;
     left: 420px;
     text-align: center;
+    z-index: 100;
 }
 .game{
     background-color: black;
     height: 90vh;
     width: 35%;
     margin: 0 auto;
+    position: absolute;
+    left: 550px;
 }
 .hide{
     display: none;
