@@ -1,3 +1,4 @@
+// a class is a blue print of an object
 class Human{
     // to add parameters to the constructor we need to start the variables with _
     //the _ is used for variables for being initialised, its not meant to be used
