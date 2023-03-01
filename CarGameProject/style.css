@@ -13,7 +13,7 @@
 }
 .game{
     background-color: black;
-    height: 100vh;
+    height: 90vh;
     width: 35%;
     margin: 0 auto;
 }
@@ -26,4 +26,11 @@
     width: 70px;
     position: absolute;
     bottom: 0;
+}
+.line{
+    background-color: white;
+    height: 150px;
+    width: 30px;
+    margin: 0 auto;
+    position: relative;
 }
