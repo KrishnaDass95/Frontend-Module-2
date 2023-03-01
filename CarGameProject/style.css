@@ -20,3 +20,10 @@
 .hide{
     display: none;
 }
+.car{
+    background-color: red;
+    height: 100px;
+    width: 70px;
+    position: absolute;
+    bottom: 0;
+}
