@@ -18,16 +18,16 @@ let player = {
 function renderGame(milliseconds){ // the milliseconds here tells the time when it was called for the first time 
     const car = document.querySelector('.car')
     if(player.ArrowUp){
-        carPosition.y -= 5; 
+        carPosition.y += 5; 
     }
     if(player.ArrowDown){
-        carPosition.y += 5;
+        carPosition.y -= 5;
     }
     if(player.ArrowRight){
-        carPosition.x += 5;
+        carPosition.x -= 5;
     }
     if(player.ArrowLeft){
-        carPosition.x -= 5;
+        carPosition.x += 5;
     }
     car.style.top = carPosition.y + 'px';
     car.style.left = carPosition.x + 'px';
@@ -43,13 +43,16 @@ function startGame(){
     // let's add a car now
     const car = document.createElement('div');
     car.setAttribute('class', 'car');
+    
+    // we need this car to be inside the game container
+    gameContainer.appendChild(car);
+
+    // offset top tells the distance between the parent positioned element and same with the left.
+    // this gives a reference of frame for us to use our keypad to control where it moves
     const carTop = car.offsetTop;
     const carLeft = car.offsetLeft;
     carPosition.x = carLeft;
     carPosition.y = carTop;
-
-    // we need this car to be inside the game container
-    gameContainer.appendChild(car);
 
     // next we need to add the road-divider lines
     // at any given point, there are 4 lines present
