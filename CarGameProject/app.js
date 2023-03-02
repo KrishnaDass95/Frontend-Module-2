@@ -1,7 +1,6 @@
 const scoreContainer = document.querySelector('.score');
 const startContainer = document.querySelector('.start');
 const gameContainer = document.querySelector('.game');
-let lineSpeed = 2;
 
 let carPosition = {
     x: 0, 
@@ -16,11 +15,21 @@ let player = {
     ArrowRight: false
 };
 
+
 function animateLines(){
     // get the line
     let lines = document.querySelectorAll('.line');
     console.log(lines);
+    lines.forEach(line => {
+        let top = line.offsetTop;
+        if(line.offsetTop > 600){
+            top = 0;
+        }
+        line.style.top = top + 20 + 'px';
+    })
 }
+
+
 
 
 
