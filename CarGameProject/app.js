@@ -96,7 +96,13 @@ function startGame(){
         enemy.style.top = Math.floor((Math.random() * 400)) + 'px';
         enemy.style.left = Math.floor((Math.random() * 400)) + 'px';
         gameContainer.appendChild(enemy);
+        // we need to drop the enemy downx
+        let enemies = document.querySelectorAll('.enemy');
+        enemies.forEach(enemyCar => {
+            enemyCar.style.top += 10;
+        })
     }
+    
 
     window.requestAnimationFrame(renderGame);
 
