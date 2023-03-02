@@ -1,6 +1,7 @@
 const scoreContainer = document.querySelector('.score');
 const startContainer = document.querySelector('.start');
 const gameContainer = document.querySelector('.game');
+let lineSpeed = 2;
 
 let carPosition = {
     x: 0, 
@@ -12,10 +13,13 @@ let player = {
     ArrowUp: false,
     ArrowDown: false,
     ArrowLeft: false,
-    ArrowDown: false
+    ArrowRight: false
 };
-// TODO understand positions a bit better when you come back
-function renderGame(milliseconds){ // the milliseconds here tells the time when it was called for the first time 
+
+
+
+function renderGame(currentTime){ // the milliseconds here tells the time when it was called for the first time 
+    // animateLines();
     const car = document.querySelector('.car');
     const box = gameContainer.getBoundingClientRect(); // this function returns the dimensions of the game container box
     console.log('top',box.top);
@@ -24,18 +28,18 @@ function renderGame(milliseconds){ // the milliseconds here tells the time when 
     console.log('left', box.left);
     console.log('carPosition.y' , carPosition.y);
     console.log('carPosition.x' , carPosition.x);
-    if(player.ArrowDown && carPosition.y > box.top - 150){
+    if(player.ArrowUp && carPosition.y > box.top - 150){
         carPosition.y -= 5; 
         console.log(carPosition.y);
     }
-    if(player.ArrowUp && carPosition.y < box.bottom-270){
+    if(player.ArrowDown && carPosition.y < box.bottom-270){
         carPosition.y += 5;
         // console.log(carPosition.y);
     }
-    if(player.ArrowLeft && carPosition.x < box.left - 40){
+    if(player.ArrowRight && carPosition.x < box.left - 40){
         carPosition.x += 5;
     }
-    if(player.ArrowRight && carPosition.x > 0){
+    if(player.ArrowLeft && carPosition.x > 0){
         carPosition.x -= 5;
     }
     car.style.top = carPosition.y + 'px';
@@ -81,13 +85,13 @@ function startGame(){
 function handleKeyUp(event){ // any event handler has an event object that has details about the event
     event.preventDefault(); // this is important because, the default value of a button in a browser can do something
     // to prevent the default action of the browser we can use the preventDefault function on the event.
-    player[event.key] = true;
+    player[event.key] = false;
 }
 function handleKeyDown(event){
     event.preventDefault();
-    player[event.key] = false;
+    player[event.key] = true;
 }
 
-document.addEventListener('keyup', handleKeyUp); // keyup is when any key is held down
-document.addEventListener('keydown', handleKeyDown); // keydown is when a key is not held down
+document.addEventListener('keyup', handleKeyUp); // keyup is when a pressed key is released
+document.addEventListener('keydown', handleKeyDown); // keydown is first pressed down
 startContainer.addEventListener('click', startGame);
