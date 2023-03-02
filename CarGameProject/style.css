@@ -1,6 +1,12 @@
+*{
+    color: white;
+    font-family: inter;
+}
 .score{
     background-color: black;
     height: 150px;
+    text-align: center;
+    font-size: 45px;
 }
 .start{
     background-color: red;

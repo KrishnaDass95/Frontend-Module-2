@@ -1,6 +1,9 @@
 const scoreContainer = document.querySelector('.score');
 const startContainer = document.querySelector('.start');
 const gameContainer = document.querySelector('.game');
+const scoreDiv = document.createElement('div');
+scoreContainer.appendChild(scoreDiv);
+let score = 0;
 
 let carPosition = {
     x: 0, 
@@ -29,12 +32,10 @@ function animateLines(){
     })
 }
 
-
-
-
-
 function renderGame(currentTime){ // the milliseconds here tells the time when it was called for the first time 
     animateLines();
+    score++;
+    scoreDiv.textContent = `Score: ${score}`;
     const car = document.querySelector('.car');
     const box = gameContainer.getBoundingClientRect(); // this function returns the dimensions of the game container box
     if(player.ArrowUp && carPosition.y > box.top - 150){
@@ -88,6 +89,8 @@ function startGame(){
         gameContainer.appendChild(line);
         top += 120;
     }
+    
+    
 
     window.requestAnimationFrame(renderGame);
 }
