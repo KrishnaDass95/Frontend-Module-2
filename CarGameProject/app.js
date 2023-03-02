@@ -16,18 +16,18 @@ let player = {
     ArrowRight: false
 };
 
+function animateLines(){
+    // get the line
+    let lines = document.querySelectorAll('.line');
+    console.log(lines);
+}
+
 
 
 function renderGame(currentTime){ // the milliseconds here tells the time when it was called for the first time 
-    // animateLines();
+    animateLines();
     const car = document.querySelector('.car');
     const box = gameContainer.getBoundingClientRect(); // this function returns the dimensions of the game container box
-    console.log('top',box.top);
-    console.log('bottom', box.bottom);
-    console.log('right', box.right);
-    console.log('left', box.left);
-    console.log('carPosition.y' , carPosition.y);
-    console.log('carPosition.x' , carPosition.x);
     if(player.ArrowUp && carPosition.y > box.top - 150){
         carPosition.y -= 5; 
         console.log(carPosition.y);
@@ -77,7 +77,7 @@ function startGame(){
         line.classList.add('line');
         line.style.top = top + 'px';
         gameContainer.appendChild(line);
-        top += 150;
+        top += 120;
     }
 
     window.requestAnimationFrame(renderGame);
