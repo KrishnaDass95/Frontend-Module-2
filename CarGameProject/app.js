@@ -7,7 +7,8 @@ let score = 0;
 
 let carPosition = {
     x: 0, 
-    y: 0
+    y: 0,
+    speed: 10,
 };
 
 // to keep a track of what key the user has pressed, we can create a player object
@@ -39,18 +40,18 @@ function renderGame(currentTime){ // the milliseconds here tells the time when i
     const car = document.querySelector('.car');
     const box = gameContainer.getBoundingClientRect(); // this function returns the dimensions of the game container box
     if(player.ArrowUp && carPosition.y > box.top - 150){
-        carPosition.y -= 5; 
+        carPosition.y -= carPosition.speed; 
         console.log(carPosition.y);
     }
     if(player.ArrowDown && carPosition.y < box.bottom-270){
-        carPosition.y += 5;
+        carPosition.y += carPosition.speed;
         // console.log(carPosition.y);
     }
     if(player.ArrowRight && carPosition.x < box.left - 40){
-        carPosition.x += 5;
+        carPosition.x += carPosition.speed;
     }
     if(player.ArrowLeft && carPosition.x > 0){
-        carPosition.x -= 5;
+        carPosition.x -= carPosition.speed;
     }
     car.style.top = carPosition.y + 'px';
     car.style.left = carPosition.x + 'px';
@@ -89,10 +90,17 @@ function startGame(){
         gameContainer.appendChild(line);
         top += 120;
     }
-    
-    
+    for(let i = 0; i < 3; i++){
+        let enemy = document.createElement('div');
+        enemy.classList.add('enemy');
+        enemy.style.top = Math.floor((Math.random() * 400)) + 'px';
+        enemy.style.left = Math.floor((Math.random() * 400)) + 'px';
+        gameContainer.appendChild(enemy);
+    }
 
     window.requestAnimationFrame(renderGame);
+
+    
 }
 function handleKeyUp(event){ // any event handler has an event object that has details about the event
     event.preventDefault(); // this is important because, the default value of a button in a browser can do something
@@ -104,6 +112,8 @@ function handleKeyDown(event){
     player[event.key] = true;
 }
 
+
+// all event listeners below
 document.addEventListener('keyup', handleKeyUp); // keyup is when a pressed key is released
 document.addEventListener('keydown', handleKeyDown); // keydown is first pressed down
 startContainer.addEventListener('click', startGame);
