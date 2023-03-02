@@ -14,20 +14,29 @@ let player = {
     ArrowLeft: false,
     ArrowDown: false
 };
-
+// TODO understand positions a bit better when you come back
 function renderGame(milliseconds){ // the milliseconds here tells the time when it was called for the first time 
-    const car = document.querySelector('.car')
-    if(player.ArrowUp){
-        carPosition.y += 5; 
+    const car = document.querySelector('.car');
+    const box = gameContainer.getBoundingClientRect(); // this function returns the dimensions of the game container box
+    console.log('top',box.top);
+    console.log('bottom', box.bottom);
+    console.log('right', box.right);
+    console.log('left', box.left);
+    console.log('carPosition.y' , carPosition.y);
+    console.log('carPosition.x' , carPosition.x);
+    if(player.ArrowDown && carPosition.y > box.top - 150){
+        carPosition.y -= 5; 
+        console.log(carPosition.y);
     }
-    if(player.ArrowDown){
-        carPosition.y -= 5;
+    if(player.ArrowUp && carPosition.y < box.bottom-270){
+        carPosition.y += 5;
+        // console.log(carPosition.y);
     }
-    if(player.ArrowRight){
-        carPosition.x -= 5;
-    }
-    if(player.ArrowLeft){
+    if(player.ArrowLeft && carPosition.x < box.left - 40){
         carPosition.x += 5;
+    }
+    if(player.ArrowRight && carPosition.x > 0){
+        carPosition.x -= 5;
     }
     car.style.top = carPosition.y + 'px';
     car.style.left = carPosition.x + 'px';
@@ -53,6 +62,8 @@ function startGame(){
     const carLeft = car.offsetLeft;
     carPosition.x = carLeft;
     carPosition.y = carTop;
+    console.log('carTop', carTop);
+    console.log('carLeft', carLeft);
 
     // next we need to add the road-divider lines
     // at any given point, there are 4 lines present
