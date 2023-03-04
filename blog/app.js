@@ -6,7 +6,7 @@ const blogContainerElement = document.querySelector('.blog-container');
 // empty array to store all the blogs
 let blogs = [];
 
-
+// todo to figure out why duplicate entries are being posted
 
 function addBlogToPage(obj) {
     const blogElement = document.createElement("div");
