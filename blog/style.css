@@ -48,6 +48,12 @@ input, .blog-desc{
     height: 30px;
     align-self: center;
 }
+
+
+
+
+
+
 @media screen and (max-width: 760px){
     .modal-new-post, .modal-edit-post{
         left: 0;
