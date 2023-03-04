@@ -2,6 +2,7 @@ body{
  background-color: #1E1E1E;
  color: white;   
  margin: 0;
+ font-family: inter;
 }
 .header{
     display: flex;
@@ -41,17 +42,40 @@ input, .blog-desc{
     padding: 10px;
     margin-right: 10px;
 }
-#new-post{
+#new-post, .delete-button, .edit-button{
     border: 1px solid #FFFFFF;
     background-color: #111111;
     color: white;
     height: 30px;
     align-self: center;
 }
+.blog{
+    border: 1px solid white;
+    padding: 15px;
+    max-width: 80%;
+    margin: 1.5% auto;
 
+}
 
+.dateAndButtonGroupDiv{
+    display: flex;
+    justify-content: space-between;
+}
 
+.buttonGroup{
+    display: flex;
+    gap: 20px;
+}
+.buttonGroup > button {
+    width: 100px;
+}
 
+.date{
+    align-self: center;
+    color: #808080;
+    font-size: 13px;
+
+}
 
 
 @media screen and (max-width: 760px){
@@ -59,6 +83,9 @@ input, .blog-desc{
         left: 0;
         right: 0;
 
+    }
+    .blog{
+        padding: 5px;
     }
     
 }

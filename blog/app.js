@@ -19,18 +19,31 @@ function addBlogToPage(obj) {
     const paragraphElement = document.createElement("p");
     paragraphElement.textContent = obj.description;
     blogElement.appendChild(paragraphElement);
-  
+
+    const dateAndButtonGroupDiv = document.createElement('div');
+    dateAndButtonGroupDiv.classList.add('dateAndButtonGroupDiv');
+
+    const buttonGroup = document.createElement('div');
+    buttonGroup.classList.add('buttonGroup')
     const editButton = document.createElement("button");
     editButton.textContent = "Edit Post";
-    blogElement.appendChild(editButton);
+    editButton.classList.add('edit-button')
+    buttonGroup.appendChild(editButton);
   
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete Post";
-    blogElement.appendChild(deleteButton);
+    deleteButton.classList.add('delete-button');
+    deleteButton.classList.add('edit-button')
+    buttonGroup.appendChild(deleteButton);
+
+    dateAndButtonGroupDiv.appendChild(buttonGroup);
   
     const dateElement = document.createElement("span");
     dateElement.textContent = obj.date;
-    blogElement.appendChild(dateElement);
+    dateElement.classList.add('date');
+    dateAndButtonGroupDiv.appendChild(dateElement);
+
+    blogElement.appendChild(dateAndButtonGroupDiv);
   
     blogContainerElement.appendChild(blogElement);
   }
