@@ -61,44 +61,44 @@ function getDateAndTime(){
 // close the modal when open
 function closeModal(modal){
     modal.style.display = 'none';
+    
 }
 
 // Creates a new Blog
 function createNewBlog(){
     newPostModalElement.style.display = 'block'
-    const cancelButton = document.querySelector('#cancel');
-    const crossButton = document.querySelector('.close');
-    const publishButtonElement = document.querySelector('#publish');
-
-    publishButtonElement.addEventListener('click', ()=> {
-        let blogTitle = document.querySelector('.blog-title').value;
-        let blogDesc = document.querySelector('.blog-desc').value;
-        if(!blogTitle && !blogDesc){
-            alert('fields are empty, add content please');
-        }
-        else{
-        let blogsObj = {
-            id: Math.random().toString(36).substring(2,8),
-            title: blogTitle,
-            description: blogDesc,
-            date: `created At: ${getDateAndTime()}`,
-        }
-        // for debugging
-        console.log(blogsObj); 
-        blogs.push(blogsObj);
-        addBlogToPage(blogsObj);
-    }
-        // console.log(blogs);
-        // TODO clear the fields once submitted
-    });
-
-    cancelButton.addEventListener('click', ()=>{
-        closeModal(newPostModalElement)});
-    crossButton.addEventListener('click', ()=> {
-        closeModal(newPostModalElement)
-    });
-    
 }
+
+const cancelButton = document.querySelector('#cancel');
+const crossButton = document.querySelector('.close');
+const publishButtonElement = document.querySelector('#publish');
+
+publishButtonElement.addEventListener('click', ()=> {
+    let blogTitleInput = document.querySelector('.blog-title');
+    let blogDescInput = document.querySelector('.blog-desc');
+    let blogTitle = blogTitleInput.value;
+    let blogDesc = blogDescInput.value;
+    let blogsObj = {
+        id: Math.random().toString(36).substring(2,8),
+        title: blogTitle,
+        description: blogDesc,
+        date: `created At: ${getDateAndTime()}`,
+    }
+    // for debugging
+    console.log(blogsObj); 
+    blogs.push(blogsObj);
+    addBlogToPage(blogsObj);
+    blogTitleInput.value = '';
+    blogDescInput.value = '';
+    // console.log(blogs);
+    // TODO clear the fields once submitted
+});
+
+cancelButton.addEventListener('click', ()=>{
+    closeModal(newPostModalElement)});
+crossButton.addEventListener('click', ()=> {
+    closeModal(newPostModalElement)
+});
 
 // event listeners
 createNewPostElement.addEventListener('click', createNewBlog);
