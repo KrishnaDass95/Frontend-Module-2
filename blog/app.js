@@ -2,15 +2,30 @@
 const createNewPostElement = document.querySelector('#new-post');
 const newPostModalElement = document.querySelector('.modal-new-post');
 const blogContainerElement = document.querySelector('.blog-container');
+const body = document.getElementsByTagName('body');
+
 
 // empty array to store all the blogs
 let blogs = [];
 
-// todo to figure out why duplicate entries are being posted
+
+function deleteBlog(event){
+    // get the parent blog using the target and parentNode function
+    let postElement = event.target.parentNode.parentNode.parentNode;
+    console.log(postElement);
+
+    // you can find elements using this and then you can 
+    let postId = postElement.dataset.id;
+    console.log(postId);
+    postElement.remove();
+
+}
+
 
 function addBlogToPage(obj) {
     const blogElement = document.createElement("div");
     blogElement.classList.add("blog");
+    blogElement.setAttribute('data-id', obj.id);
   
     const headingElement = document.createElement("h3");
     headingElement.textContent = obj.title;
@@ -46,6 +61,9 @@ function addBlogToPage(obj) {
     blogElement.appendChild(dateAndButtonGroupDiv);
   
     blogContainerElement.appendChild(blogElement);
+
+
+    deleteButton.addEventListener('click', deleteBlog);
   }
   
 
@@ -66,7 +84,7 @@ function closeModal(modal){
 
 // Creates a new Blog
 function createNewBlog(){
-    newPostModalElement.style.display = 'block'
+    newPostModalElement.style.display = 'block';
 }
 
 const cancelButton = document.querySelector('#cancel');
@@ -78,6 +96,10 @@ publishButtonElement.addEventListener('click', ()=> {
     let blogDescInput = document.querySelector('.blog-desc');
     let blogTitle = blogTitleInput.value;
     let blogDesc = blogDescInput.value;
+    if(!blogTitle && !blogDesc){
+        alert('Blog fields are empty, please add data');
+    }
+    else{
     let blogsObj = {
         id: Math.random().toString(36).substring(2,8),
         title: blogTitle,
@@ -90,15 +112,22 @@ publishButtonElement.addEventListener('click', ()=> {
     addBlogToPage(blogsObj);
     blogTitleInput.value = '';
     blogDescInput.value = '';
-    // console.log(blogs);
-    // TODO clear the fields once submitted
+    closeModal(newPostModalElement);
+}
 });
+
 
 cancelButton.addEventListener('click', ()=>{
     closeModal(newPostModalElement)});
 crossButton.addEventListener('click', ()=> {
     closeModal(newPostModalElement)
 });
+
+
+// let's work on edit and delete
+
+
+
 
 // event listeners
 createNewPostElement.addEventListener('click', createNewBlog);
