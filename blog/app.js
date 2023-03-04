@@ -4,20 +4,47 @@ const newPostModalElement = document.querySelector('.modal-new-post');
 const blogContainerElement = document.querySelector('.blog-container');
 const editPostModalElement = document.querySelector('.modal-edit-post');
 const body = document.getElementsByTagName('body');
+const editCancelButton = document.querySelector('.close-edit')
+const cancelButton = document.querySelector('#cancel');
+const crossButton = document.querySelector('.close');
+const publishButtonElement = document.querySelector('#publish');
+const saveDataButtonElement = document.querySelector('#save');
+const deleteEditButtonElement = document.querySelector('#delete');
 
 
 // empty array to store all the blogs
 let blogs = [];
 
 
+function deleteBlogFromEditModal(postId){
+    console.log('delete blog called from edit modal');
+    // get the parent blog using the target and parentNode function
+    let postElement = document.querySelector(`.blog[data-id="${postId}"]`);
+    console.log('postElement', postElement);
+
+    // you can find elements using this and then you can 
+    console.log('postID', postId);
+    postElement.remove();
+    // ideally handle deleting the data inside the blogs array
+
+    const indexToBeDeleted = blogs.findIndex(obj => obj.id === postId)
+    console.log('del' , indexToBeDeleted);
+    if(indexToBeDeleted != -1){
+        blogs.splice(indexToBeDeleted, 1);
+    }
+    
+    
+}
+
 function deleteBlog(event){
+    console.log('delete blog called');
     // get the parent blog using the target and parentNode function
     let postElement = event.target.parentNode.parentNode.parentNode;
-    console.log(postElement);
+    console.log('postElement', postElement);
 
     // you can find elements using this and then you can 
     let postId = postElement.dataset.id;
-    console.log(postId);
+    console.log('postID', postId);
     postElement.remove();
     // ideally handle deleting the data inside the blogs array
 
@@ -50,7 +77,11 @@ function editBlog(event){
     blogTitleInput.value = blogHeading;
     blogDescInput.value = blogContent;
 
-    // now we need to handle the cross and delete
+    // now we need to handle the delete
+    deleteEditButtonElement.addEventListener('click', ()=>{
+        deleteBlogFromEditModal(postId);
+    } );
+
 
 
 
@@ -100,6 +131,8 @@ function addBlogToPage(obj) {
 
     deleteButton.addEventListener('click', deleteBlog);
     editButton.addEventListener('click', editBlog);
+    // deleteEditButtonElement.addEventListener('click', deleteBlog);
+
   }
   
 
@@ -122,10 +155,7 @@ function closeModal(modal){
 function createNewBlog(){
     newPostModalElement.style.display = 'block';
 }
-const editCancelButton = document.querySelector('.close-edit')
-const cancelButton = document.querySelector('#cancel');
-const crossButton = document.querySelector('.close');
-const publishButtonElement = document.querySelector('#publish');
+
 
 publishButtonElement.addEventListener('click', ()=> {
     let blogTitleInput = document.querySelector('.blog-title');
@@ -151,6 +181,9 @@ publishButtonElement.addEventListener('click', ()=> {
     closeModal(newPostModalElement);
 }
 });
+
+
+
 
 editCancelButton.addEventListener('click', ()=> {
     closeModal(editPostModalElement);
