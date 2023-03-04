@@ -50,6 +50,10 @@ function editBlog(event){
     blogTitleInput.value = blogHeading;
     blogDescInput.value = blogContent;
 
+    // now we need to handle the cross and delete
+
+
+
 }
 
 
@@ -118,7 +122,7 @@ function closeModal(modal){
 function createNewBlog(){
     newPostModalElement.style.display = 'block';
 }
-
+const editCancelButton = document.querySelector('.close-edit')
 const cancelButton = document.querySelector('#cancel');
 const crossButton = document.querySelector('.close');
 const publishButtonElement = document.querySelector('#publish');
@@ -148,17 +152,14 @@ publishButtonElement.addEventListener('click', ()=> {
 }
 });
 
-
+editCancelButton.addEventListener('click', ()=> {
+    closeModal(editPostModalElement);
+})
 cancelButton.addEventListener('click', ()=>{
     closeModal(newPostModalElement)});
 crossButton.addEventListener('click', ()=> {
     closeModal(newPostModalElement)
 });
-
-
-// let's work on edit and delete
-
-
 
 
 // event listeners
