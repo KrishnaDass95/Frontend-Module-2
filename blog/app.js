@@ -73,6 +73,10 @@ function createNewBlog(){
     publishButtonElement.addEventListener('click', ()=> {
         let blogTitle = document.querySelector('.blog-title').value;
         let blogDesc = document.querySelector('.blog-desc').value;
+        if(!blogTitle && !blogDesc){
+            alert('fields are empty, add content please');
+        }
+        else{
         let blogsObj = {
             id: Math.random().toString(36).substring(2,8),
             title: blogTitle,
@@ -80,9 +84,11 @@ function createNewBlog(){
             date: `created At: ${getDateAndTime()}`,
         }
         // for debugging
-        // console.log(blogsObj); 
+        console.log(blogsObj); 
         blogs.push(blogsObj);
         addBlogToPage(blogsObj);
+    }
+        // console.log(blogs);
         // TODO clear the fields once submitted
     });
 
