@@ -15,6 +15,21 @@ const deleteEditButtonElement = document.querySelector('#delete');
 // empty array to store all the blogs
 let blogs = [];
 
+function saveDataFromEditModal(postId){
+    let postElement = document.querySelector(`.blog[data-id="${postId}"]`);
+    let blogTitleInput = document.querySelector('.blog-title-edit');
+    let blogDescInput = document.querySelector('.blog-desc-edit');
+    
+    let titleValue = blogTitleInput.value;
+    let descValue = blogDescInput.value;
+
+    let titleElement = postElement.querySelector('h3');
+    let descElement = postElement.querySelector('p');
+    titleElement.textContent = titleValue;
+    descElement.textContent = descValue;
+
+    //
+}
 
 function deleteBlogFromEditModal(postId){
     console.log('delete blog called from edit modal');
@@ -32,7 +47,7 @@ function deleteBlogFromEditModal(postId){
     if(indexToBeDeleted != -1){
         blogs.splice(indexToBeDeleted, 1);
     }
-    
+    closeModal(editPostModalElement);
     
 }
 
@@ -81,10 +96,9 @@ function editBlog(event){
     deleteEditButtonElement.addEventListener('click', ()=>{
         deleteBlogFromEditModal(postId);
     } );
-
-
-
-
+    saveDataButtonElement.addEventListener('click', ()=>{
+        saveDataFromEditModal(postId);
+    })
 }
 
 
