@@ -8,7 +8,7 @@ body{
     justify-content: space-between;
     background-color: #111111;
 }
-.modal{
+.modal-new-post, .modal-edit-post{
     /* position: absolute;
     top: 30%;
     left: 40%; */

@@ -13,7 +13,7 @@
         <h3>Blogging website</h3>
         <button id="new-post">Create New Post</button>
     </div>
-    <div class="modal ">
+    <div class="modal-new-post">
         <div class="modal-head-info">
             <div class="modal-header">Create A Post</div>
             <div class="close-icon">
@@ -29,6 +29,24 @@
         <div class="modal-buttons">
             <button class="modal-button" id="publish">Publish Post</button>
             <button class="modal-button" id ="cancel">Cancel Post</button>
+        </div>
+    </div>
+    <div class="modal-edit-post">
+        <div class="modal-head-info">
+            <div class="modal-header">Edit A Post</div>
+            <div class="close-icon">
+                <span class="material-symbols-outlined">
+                    close
+                    </span>
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" class="blog-title" placeholder="Enter Your heading....">
+            <textarea type="text" class="blog-desc" placeholder="Enter Your Blog Post..."></textarea>
+        </div>
+        <div class="modal-buttons">
+            <button class="modal-button" id="save">Save Post</button>
+            <button class="modal-button" id ="delete">Delete Post</button>
         </div>
     </div>
 
