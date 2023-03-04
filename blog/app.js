@@ -28,7 +28,8 @@ function saveDataFromEditModal(postId){
     titleElement.textContent = titleValue;
     descElement.textContent = descValue;
 
-    //
+    //lets close modal
+    closeModal(editPostModalElement);
 }
 
 function deleteBlogFromEditModal(postId){
