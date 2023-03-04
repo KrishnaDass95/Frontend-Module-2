@@ -2,6 +2,7 @@
 const createNewPostElement = document.querySelector('#new-post');
 const newPostModalElement = document.querySelector('.modal-new-post');
 const blogContainerElement = document.querySelector('.blog-container');
+const editPostModalElement = document.querySelector('.modal-edit-post');
 const body = document.getElementsByTagName('body');
 
 
@@ -18,6 +19,36 @@ function deleteBlog(event){
     let postId = postElement.dataset.id;
     console.log(postId);
     postElement.remove();
+    // ideally handle deleting the data inside the blogs array
+
+    const indexToBeDeleted = blogs.findIndex(obj => obj.id === postId)
+    console.log('del' , indexToBeDeleted);
+    if(indexToBeDeleted != -1){
+        blogs.splice(indexToBeDeleted, 1);
+    }
+}
+function editBlog(event){
+    let postElement = event.target.parentNode.parentNode.parentNode;
+    console.log(postElement);
+    let postId = postElement.dataset.id;
+    let blogHeading = '';
+    let blogContent = '';
+    blogs.forEach(function (blog, index){
+        if(blog.id == postId){
+            blogHeading = blog.title;
+            blogContent = blog.description;
+        }
+    })
+    // console.log('head', blogHeading);
+    // console.log('head', blogContent); 
+    
+    // let's show the edit Modal
+    editPostModalElement.style.display = 'block';
+    let blogTitleInput = document.querySelector('.blog-title-edit');
+    let blogDescInput = document.querySelector('.blog-desc-edit');
+    console.log('ll', blogTitleInput);
+    blogTitleInput.value = blogHeading;
+    blogDescInput.value = blogContent;
 
 }
 
@@ -64,6 +95,7 @@ function addBlogToPage(obj) {
 
 
     deleteButton.addEventListener('click', deleteBlog);
+    editButton.addEventListener('click', editBlog);
   }
   
 
