@@ -9,19 +9,20 @@ body{
     background-color: #111111;
 }
 .modal-new-post, .modal-edit-post{
-    /* position: absolute;
-    top: 30%;
-    left: 40%; */
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     color: black;
-    margin: 0 auto;
+    /* margin: 20px auto; */
     background-color: white;
-    border: 1px solid red;
     max-width: 1000px;
+    /* display: none;  */
+    position: fixed;
+    top: 20%;
+    left: 35%;
 }
+
 .modal-head-info{
     display: flex;
     justify-content: space-between;
@@ -47,3 +48,13 @@ input, .blog-desc{
     height: 30px;
     align-self: center;
 }
+@media screen and (max-width: 760px){
+    .modal-new-post, .modal-edit-post{
+        left: 0;
+        right: 0;
+
+    }
+    
+}
+
+/* TODO, make the modal disappear, and create a blog container
