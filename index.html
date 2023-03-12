@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna's Blog Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+    <div class="header">
+        <h3>Blogging website</h3>
+        <button id="new-post">Create New Post</button>
+    </div>
+    <div class="modal-new-post">
+        <div class="modal-head-info">
+            <div class="modal-header">Create A Post</div>
+            <div class="close-icon">
+                <span class="material-symbols-outlined close">
+                    close
+                    </span>
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" class="blog-title" placeholder="Enter Your heading....">
+            <textarea type="text" class="blog-desc" placeholder="Enter Your Blog Post..."></textarea>
+        </div>
+        <div class="modal-buttons">
+            <button class="modal-button" id="publish">Publish Post</button>
+            <button class="modal-button" id ="cancel">Cancel Post</button>
+        </div>
+    </div>
+    <div class="modal-edit-post">
+        <div class="modal-head-info">
+            <div class="modal-header">Edit A Post</div>
+            <div class="close-icon">
+                <span class="material-symbols-outlined close-edit">
+                    close
+                    </span>
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" class="blog-title-edit" placeholder="Enter Your heading....">
+            <textarea type="text" class="blog-desc-edit" placeholder="Enter Your Blog Post..."></textarea>
+        </div>
+        <div class="modal-buttons">
+            <button class="modal-button" id="save">Save Post</button>
+            <button class="modal-button" id ="delete">Delete Post</button>
+        </div>
+    </div>
+    <div class="blog-container">
+
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
